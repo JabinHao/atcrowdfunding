@@ -23,7 +23,35 @@
           <element id="archive" name="atcrowdfunding05-common-util-1.0-SNAPSHOT.jar">
             <element id="module-output" name="atcrowdfunding05-common-util" />
           </element>
+          <element id="library" level="project" name="Maven: org.springframework:spring-orm:5.2.11.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:5.2.11.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:5.2.11.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-tx:5.2.11.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:5.2.11.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:5.2.11.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:5.2.11.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:5.2.11.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-web:5.2.11.RELEASE" />
+          <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.9.6" />
+          <element id="library" level="project" name="Maven: cglib:cglib:3.3.0" />
+          <element id="library" level="project" name="Maven: org.ow2.asm:asm:7.1" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.21" />
+          <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:3.11.4" />
+          <element id="library" level="project" name="Maven: com.alibaba:druid:1.2.3" />
+          <element id="library" level="project" name="Maven: javax.annotation:javax.annotation-api:1.3.2" />
           <element id="library" level="project" name="Maven: org.mybatis:mybatis:3.5.3" />
+          <element id="library" level="project" name="Maven: org.mybatis:mybatis-spring:2.0.5" />
+          <element id="library" level="project" name="Maven: com.github.pagehelper:pagehelper:5.2.0" />
+          <element id="library" level="project" name="Maven: com.github.jsqlparser:jsqlparser:3.2" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.11.3" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.11.3" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.11.3" />
+          <element id="library" level="project" name="Maven: javax.servlet.jsp.jstl:jstl-api:1.2" />
+          <element id="library" level="project" name="Maven: javax.servlet:servlet-api:2.5" />
+          <element id="library" level="project" name="Maven: javax.servlet.jsp:jsp-api:2.1" />
+          <element id="library" level="project" name="Maven: com.google.code.gson:gson:2.8.6" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:5.2.11.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jcl:5.2.11.RELEASE" />
         </element>
       </element>
       <element id="directory" name="META-INF">
