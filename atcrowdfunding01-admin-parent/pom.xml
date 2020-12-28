@@ -103,7 +103,6 @@
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-classic</artifactId>
                 <version>1.3.0-alpha5</version>
-                <scope>test</scope>
             </dependency>
             <!-- 其他日志框架的中间转换包 -->
             <!-- https://mvnrepository.com/artifact/org.slf4j/jcl-over-slf4j -->
