@@ -32,9 +32,6 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-context:5.2.11.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-expression:5.2.11.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-web:5.2.11.RELEASE" />
-          <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.9.6" />
-          <element id="library" level="project" name="Maven: cglib:cglib:3.3.0" />
-          <element id="library" level="project" name="Maven: org.ow2.asm:asm:7.1" />
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.21" />
           <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:3.11.4" />
           <element id="library" level="project" name="Maven: com.alibaba:druid:1.2.3" />
@@ -58,6 +55,10 @@
           <element id="library" level="project" name="Maven: edu.washington.cs.types.checker:checker-framework:1.7.0" />
           <element id="library" level="project" name="Maven: org.slf4j:jcl-over-slf4j:2.0.0-alpha1" />
           <element id="library" level="project" name="Maven: org.springframework:spring-core:5.2.11.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jcl:5.2.11.RELEASE" />
+          <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.9.6" />
+          <element id="library" level="project" name="Maven: cglib:cglib:3.3.0" />
+          <element id="library" level="project" name="Maven: org.ow2.asm:asm:7.1" />
         </element>
       </element>
       <element id="directory" name="META-INF">

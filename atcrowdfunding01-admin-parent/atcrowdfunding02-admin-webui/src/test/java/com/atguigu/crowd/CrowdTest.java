@@ -1,5 +1,6 @@
 package com.atguigu.crowd;
 
+import com.atguigu.crowd.service.api.AdminService;
 import crowd.entity.Admin;
 import com.atguigu.crowd.mapper.AdminMapper;
 import org.junit.jupiter.api.Test;
@@ -11,15 +12,26 @@ import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 // 这里用junit5进行测试
-@SpringJUnitConfig(locations = "classpath:spring-persist-mybatis.xml")
+@SpringJUnitConfig(locations = {"classpath:spring-persist-tx.xml", "classpath:spring-persist-mybatis.xml"})
 public class CrowdTest {
     @Autowired
     private DataSource dataSource;
 
     @Autowired
     private AdminMapper adminMapper;
+
+    @Autowired
+    private AdminService adminService;
+
+    @Test
+    public void testTx(){
+        Admin admin = new Admin(null, "mei Lee", "123456", "mei", "mei@qq.com", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+        adminService.saveAdmin(admin);
+    }
 
     @Test
     public void testInsertAdmin(){
