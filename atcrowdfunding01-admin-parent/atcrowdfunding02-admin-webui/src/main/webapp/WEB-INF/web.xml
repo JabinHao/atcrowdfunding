@@ -61,5 +61,9 @@
             缺点：不符合RESTFUL风格、请求扩展名不匹配时会406错误
         -->
     </servlet-mapping>
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>default</servlet-name>-->
+<!--        <url-pattern>*.js</url-pattern>-->
+<!--    </servlet-mapping>-->
 
 </web-app>

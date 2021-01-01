@@ -104,12 +104,10 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
-            <version>2.11.3</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.11.3</version>
         </dependency>
         <!-- JSTL 标签库 -->
         <!-- https://mvnrepository.com/artifact/javax.servlet.jsp.jstl/jstl-api -->
