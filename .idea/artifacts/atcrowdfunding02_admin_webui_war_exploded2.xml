@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="atcrowdfunding02-admin-webui:war exploded2">
+    <output-path>$PROJECT_DIR$/out/artifacts/atcrowdfunding02_admin_webui_war_exploded2</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="atcrowdfunding02-admin-webui/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="atcrowdfunding02-admin-webui" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
