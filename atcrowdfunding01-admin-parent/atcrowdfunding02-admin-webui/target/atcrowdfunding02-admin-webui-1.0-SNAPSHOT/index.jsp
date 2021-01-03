@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>测试页面</title>
-<%--    <script type="text/javascript" src="jquery/jquery-3.5.1.js"></script>--%>
+      <%-- 不知道为什么加载不了本地的jquery，所以使用微软的CDN --%>
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="layer/layer.js"></script>
     <base href="http://${pageContext.request.serverName}:${pageContext.request.serverPort}${pageContext.request.contextPath}/">

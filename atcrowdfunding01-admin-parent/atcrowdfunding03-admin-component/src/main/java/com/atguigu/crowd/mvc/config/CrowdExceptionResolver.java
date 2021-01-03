@@ -1,6 +1,8 @@
 package com.atguigu.crowd.mvc.config;
 
 import com.atguigu.crowd.constant.CrowdConstant;
+import com.atguigu.crowd.exception.AccessForbiddenException;
+import com.atguigu.crowd.exception.LoginFailedException;
 import com.atguigu.crowd.util.CrowdUtil;
 import com.atguigu.crowd.util.ResultEntity;
 import com.google.gson.Gson;
@@ -14,6 +16,23 @@ import java.io.IOException;
 
 @ControllerAdvice
 public class CrowdExceptionResolver {
+
+    // 未登录异常
+    @ExceptionHandler(value = AccessForbiddenException.class)
+    public ModelAndView resolveAccessForbiddenException(AccessForbiddenException exception,
+                                                        HttpServletRequest request,
+                                                        HttpServletResponse response) throws IOException {
+        String viewName = "admin-login";
+        return commonResolve(viewName,exception,request,response);
+    }
+
+    // 登录失败异常
+    @ExceptionHandler(value = LoginFailedException.class)
+    public ModelAndView resolveLoginFailedException(NullPointerException exception, HttpServletRequest request, HttpServletResponse response) throws IOException {
+
+        String viewName = "admin-login";
+        return commonResolve(viewName,exception,request,response);
+    }
 
     // 空指针异常
     @ExceptionHandler(value = NullPointerException.class)

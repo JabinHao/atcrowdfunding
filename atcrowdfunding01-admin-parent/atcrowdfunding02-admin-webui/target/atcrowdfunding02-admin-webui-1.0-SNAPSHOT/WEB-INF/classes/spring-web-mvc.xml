@@ -36,11 +36,27 @@
             <props>
                 <!-- key属性指定异常全类名，标签体中指定对应的视图(前后缀拼接) -->
                 <prop key="java.lang.Exception">system-error</prop>
+                <prop key="com.atguigu.crowd.exception.AccessForbiddenException">admin-login</prop>
             </props>
         </property>
     </bean>
 
     <!--配置view-controller，直接把请求地址和视图名称关联起来，从而无需写handler方法-->
     <mvc:view-controller path="/admin/to/login.do" view-name="admin-login"/>
+    <mvc:view-controller path="/admin/to/main.do" view-name="admin-main"/>
+    
+    <!--注册拦截器-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!--要拦截的路径-->
+            <mvc:mapping path="/**"/>
+            <!--不拦截的资源-->
+            <mvc:exclude-mapping path="/admin/to/login.do"/>
+            <mvc:exclude-mapping path="/admin/do/login.do"/>
+            <mvc:exclude-mapping path="/admin/do/logout.do"/>
+            <!--配置拦截器类-->
+            <bean class="com.atguigu.crowd.mvc.interceptor.LoginInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 
 </beans>
