@@ -1,17 +1,11 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: hjp
-  Date: 2020/12/31
-  Time: 18:39
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
     <title>测试页面</title>
-    <script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+      <%-- 不知道为什么加载不了本地的jquery，所以使用微软的CDN --%>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="layer/layer.js"></script>
     <base href="http://${pageContext.request.serverName}:${pageContext.request.serverPort}${pageContext.request.contextPath}/">
-<%--    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">--%>
     <script type="text/javascript">
       $(function (){
         $("#btn01").click(function (){
@@ -95,6 +89,10 @@
           })
         })
 
+        $("#btn04").click(function (){
+          layer.msg("layer的弹框");
+        });
+
       })
     </script>
   </head>
@@ -106,5 +104,9 @@
     <button id="btn02">Send json</button>
     <br/>
     <button id="btn03">Send Object</button>
+    <br>
+    <img src="img/p1.jpg">
+    <br>
+    <button id="btn04">layer</button>
   </body>
 </html>

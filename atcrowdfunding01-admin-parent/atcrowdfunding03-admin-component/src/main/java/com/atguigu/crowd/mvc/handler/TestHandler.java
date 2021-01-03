@@ -1,6 +1,7 @@
 package com.atguigu.crowd.mvc.handler;
 
 import com.atguigu.crowd.service.api.AdminService;
+import com.atguigu.crowd.util.CrowdUtil;
 import com.atguigu.crowd.util.ResultEntity;
 import crowd.entity.Admin;
 import crowd.entity.Student;
@@ -15,6 +16,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 import org.slf4j.Logger;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class TestHandler {
@@ -46,16 +49,32 @@ public class TestHandler {
 
     @ResponseBody
     @RequestMapping("/send/compose/object.do")
-    public ResultEntity<Student> testReceiveComplicatedObject(@RequestBody Student student){
+    public ResultEntity<Student> testReceiveComplicatedObject(@RequestBody Student student, HttpServletRequest request){
+
+        boolean judgeResult = CrowdUtil.judgeRequestType(request);
+        logger.info("judgeResult = "+judgeResult);
+
         logger.info(student.toString());
+
+/*        // 制造空指针异常
+        String a = null;
+        System.out.println(a.length());*/
+
         return ResultEntity.successWithData(student);
     }
 
     @RequestMapping("/test/ssm.html")
-    public String testSSM(ModelMap modelMap){
+    public String testSSM(ModelMap modelMap, HttpServletRequest request){
+
+        boolean judgeResult = CrowdUtil.judgeRequestType(request);
+         logger.info("judgeResult = "+judgeResult);
 
         List<Admin> adminList = adminService.getAll();
         modelMap.addAttribute("adminList",adminList);
+
+/*        String a = null;
+        System.out.println(a.length());*/
+        System.out.println(10/0);
 
         return "target";
     }
