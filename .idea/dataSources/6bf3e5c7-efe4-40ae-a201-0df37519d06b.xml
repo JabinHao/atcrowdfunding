@@ -1120,10 +1120,19 @@ SELECT|sys.sys_config
       <Position>6</Position>
       <DataType>char(19)|0s</DataType>
     </column>
-    <key id="341" parent="301" name="PRIMARY">
+    <index id="341" parent="301" name="login">
+      <ColNames>login</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="342" parent="301" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
+    </key>
+    <key id="343" parent="301" name="login">
+      <ColNames>login</ColNames>
+      <UnderlyingIndexName>login</UnderlyingIndexName>
     </key>
   </database-model>
 </dataSource>

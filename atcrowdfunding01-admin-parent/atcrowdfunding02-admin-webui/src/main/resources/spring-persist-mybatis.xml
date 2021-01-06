@@ -22,6 +22,22 @@
         <property name="mapperLocations" value="classpath:mybatis/mapper/*Mapper.xml"/>
         <!--装配数据源：引用前面的dataSource数据源-->
         <property name="dataSource" ref="dataSource"/>
+
+        <!--配置插件-->
+        <property name="plugins">
+            <array>
+                <bean class="com.github.pagehelper.PageInterceptor">
+                    <property name="properties">
+                        <value>
+                            <!--配置数据库方言，告诉PageHelper-->
+                            helperDialect=mysql
+                            <!-- 配置页码的合理化修正，在1~ 总页数之间修正页码-->
+                            reasonable=true
+                        </value>
+                    </property>
+                </bean>
+            </array>
+        </property>
     </bean>
 
     <!--配置mybatis的扫描器，扫描mapper接口所在的包，创建dao对象-->

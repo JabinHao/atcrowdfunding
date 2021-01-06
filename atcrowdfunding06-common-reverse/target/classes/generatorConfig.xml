@@ -13,9 +13,9 @@
         <!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
         <jdbcConnection
                 driverClass="com.mysql.cj.jdbc.Driver"
-                connectionURL="jdbc:mysql://localhost:3306/crowd_funding?serverTimezone=UTC"
+                connectionURL="jdbc:mysql://localhost:3306/project_crowd?serverTimezone=UTC"
                 userId="Jacob"
-                password="Jacob12015229">
+                password="jacob12015229">
         </jdbcConnection>
         <!--  默认 false，把 JDBC DECIMAL  和 NUMERIC  类型解析为 Integer，为 true 时把
         JDBC DECIMAL

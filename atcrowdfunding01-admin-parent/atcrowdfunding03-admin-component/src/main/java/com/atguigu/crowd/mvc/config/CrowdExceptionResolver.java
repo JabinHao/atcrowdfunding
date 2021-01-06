@@ -2,6 +2,8 @@ package com.atguigu.crowd.mvc.config;
 
 import com.atguigu.crowd.constant.CrowdConstant;
 import com.atguigu.crowd.exception.AccessForbiddenException;
+import com.atguigu.crowd.exception.LoginAcctAlreadyInUseException;
+import com.atguigu.crowd.exception.LoginAcctAlreadyInUseForUpdateException;
 import com.atguigu.crowd.exception.LoginFailedException;
 import com.atguigu.crowd.util.CrowdUtil;
 import com.atguigu.crowd.util.ResultEntity;
@@ -16,6 +18,26 @@ import java.io.IOException;
 
 @ControllerAdvice
 public class CrowdExceptionResolver {
+
+    // 用户名重复异常
+    @ExceptionHandler(value = LoginAcctAlreadyInUseException.class)
+    public ModelAndView resolveLoginAcctAlreadyInUseException(LoginAcctAlreadyInUseException exception,
+                                                    HttpServletRequest request,
+                                                    HttpServletResponse response) throws IOException {
+        String viewName = "admin-add";
+        System.out.println(viewName);
+        return commonResolve(viewName, exception, request, response);
+    }
+
+    // 用户名重复异常(更新时)
+    @ExceptionHandler(value = LoginAcctAlreadyInUseForUpdateException.class)
+    public ModelAndView resolveLoginAcctAlreadyInUseForUpdateException(LoginAcctAlreadyInUseForUpdateException exception,
+                                                    HttpServletRequest request,
+                                                    HttpServletResponse response) throws IOException {
+        String viewName = "system-error";
+        System.out.println(viewName);
+        return commonResolve(viewName, exception, request, response);
+    }
 
     // 未登录异常
     @ExceptionHandler(value = AccessForbiddenException.class)

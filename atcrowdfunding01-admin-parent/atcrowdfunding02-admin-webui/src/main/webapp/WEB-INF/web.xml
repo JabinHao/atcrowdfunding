@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_4_0.xsd"
-         version="4.0">
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_3_1.xsd"
+         version="3.1">
 
     <!--ContextLoaderListener-->
     <context-param>
@@ -12,6 +12,10 @@
     <!-- Bootstraps the root web application context before servlet initialization -->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <!--  解决tomcat报错内存泄漏问题 -->
+    <listener>
+        <listener-class>com.atguigu.crowd.mvc.tool.CustomServletContextListener</listener-class>
     </listener>
     
     <filter>
