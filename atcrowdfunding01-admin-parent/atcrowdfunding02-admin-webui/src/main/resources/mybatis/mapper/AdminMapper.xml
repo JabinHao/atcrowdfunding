@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.atguigu.crowd.mapper.AdminMapper">
-    <resultMap id="BaseResultMap" type="crowd.entity.Admin">
+    <resultMap id="BaseResultMap" type="com.atguigu.crowd.entity.Admin">
         <id column="id" jdbcType="INTEGER" property="id"/>
         <result column="login" jdbcType="VARCHAR" property="login"/>
         <result column="user_pswd" jdbcType="CHAR" property="userPswd"/>
@@ -75,11 +75,11 @@
     <select id="selectAdminByKeyword" resultMap="BaseResultMap">
         select id, login, user_pswd, user_name, email, create_time
         from t_admin
-        where login like concat("%",#{keyword},"%") or
-              user_name like concat("%",#{keyword},"%") or
-              email like concat("%",#{keyword},"%")
+        where login like concat("%", #{keyword}, "%")
+           or user_name like concat("%", #{keyword}, "%")
+           or email like concat("%", #{keyword}, "%")
     </select>
-    <select id="selectByExample" parameterType="crowd.entity.AdminExample" resultMap="BaseResultMap">
+    <select id="selectByExample" parameterType="com.atguigu.crowd.entity.AdminExample" resultMap="BaseResultMap">
         select
         <if test="distinct">
             distinct
@@ -104,19 +104,19 @@
         from t_admin
         where id = #{id,jdbcType=INTEGER}
     </delete>
-    <delete id="deleteByExample" parameterType="crowd.entity.AdminExample">
+    <delete id="deleteByExample" parameterType="com.atguigu.crowd.entity.AdminExample">
         delete from t_admin
         <if test="_parameter != null">
             <include refid="Example_Where_Clause"/>
         </if>
     </delete>
-    <insert id="insert" parameterType="crowd.entity.Admin">
+    <insert id="insert" parameterType="com.atguigu.crowd.entity.Admin">
         insert into t_admin (id, login, user_pswd,
                              user_name, email, create_time)
         values (#{id,jdbcType=INTEGER}, #{login,jdbcType=VARCHAR}, #{userPswd,jdbcType=CHAR},
                 #{userName,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{createTime,jdbcType=CHAR})
     </insert>
-    <insert id="insertSelective" parameterType="crowd.entity.Admin">
+    <insert id="insertSelective" parameterType="com.atguigu.crowd.entity.Admin">
         insert into t_admin
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -159,7 +159,7 @@
             </if>
         </trim>
     </insert>
-    <select id="countByExample" parameterType="crowd.entity.AdminExample" resultType="java.lang.Long">
+    <select id="countByExample" parameterType="com.atguigu.crowd.entity.AdminExample" resultType="java.lang.Long">
         select count(*) from t_admin
         <if test="_parameter != null">
             <include refid="Example_Where_Clause"/>
@@ -203,7 +203,7 @@
             <include refid="Update_By_Example_Where_Clause"/>
         </if>
     </update>
-    <update id="updateByPrimaryKeySelective" parameterType="crowd.entity.Admin">
+    <update id="updateByPrimaryKeySelective" parameterType="com.atguigu.crowd.entity.Admin">
         update t_admin
         <set>
             <if test="login != null">
@@ -224,7 +224,7 @@
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
-    <update id="updateByPrimaryKey" parameterType="crowd.entity.Admin">
+    <update id="updateByPrimaryKey" parameterType="com.atguigu.crowd.entity.Admin">
         update t_admin
         set login       = #{login,jdbcType=VARCHAR},
             user_pswd   = #{userPswd,jdbcType=CHAR},

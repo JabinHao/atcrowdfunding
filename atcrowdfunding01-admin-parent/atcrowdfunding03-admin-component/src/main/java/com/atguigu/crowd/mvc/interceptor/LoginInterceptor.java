@@ -2,7 +2,7 @@ package com.atguigu.crowd.mvc.interceptor;
 
 import com.atguigu.crowd.constant.CrowdConstant;
 import com.atguigu.crowd.exception.AccessForbiddenException;
-import crowd.entity.Admin;
+import com.atguigu.crowd.entity.Admin;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;

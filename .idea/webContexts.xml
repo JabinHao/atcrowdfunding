@@ -3,9 +3,10 @@
   <component name="WebContextManager">
     <option name="state">
       <map>
-        <entry key="file://$PROJECT_DIR$/atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/src/main/webapp/WEB-INF/admin-login.jsp" value="file://$PROJECT_DIR$/atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/src/main/webapp/WEB-INF" />
+        <entry key="file://$PROJECT_DIR$/atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/src/main/webapp/WEB-INF/admin-login.jsp" value="file://$PROJECT_DIR$/atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/src/main/webapp" />
         <entry key="file://$PROJECT_DIR$/atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/src/main/webapp/WEB-INF/admin-page.jsp" value="file://$PROJECT_DIR$/atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/src/main/webapp" />
         <entry key="file://$PROJECT_DIR$/atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/src/main/webapp/WEB-INF/include-head.jsp" value="file://$PROJECT_DIR$/atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/src/main/webapp" />
+        <entry key="file://$PROJECT_DIR$/atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/src/main/webapp/WEB-INF/role-page.jsp" value="file://$PROJECT_DIR$/atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/src/main/webapp" />
         <entry key="file://$PROJECT_DIR$/atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/src/main/webapp/index.jsp" value="file://$PROJECT_DIR$/atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui/src/main/webapp" />
       </map>
     </option>

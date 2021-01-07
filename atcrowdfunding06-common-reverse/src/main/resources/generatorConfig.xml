@@ -45,7 +45,7 @@
             <property name="enableSubPackages" value="false" />
         </javaClientGenerator>
         <!--  数据库表名字和我们的 entity 类对应的映射指定 -->
-        <table tableName="t_admin" domainObjectName="Admin" />
+        <table tableName="t_role" domainObjectName="Role" />
     </context>
 </generatorConfiguration>
 

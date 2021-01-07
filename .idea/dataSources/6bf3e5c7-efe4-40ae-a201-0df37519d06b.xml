@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataSource name="crowd_funding">
+<dataSource name="project_crowd-root">
   <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.20">
     <root id="1">
       <ServerVersion>8.0.21</ServerVersion>
@@ -950,189 +950,205 @@ SELECT|sys.sys_config
     <table id="299" parent="2" name="tab_date"/>
     <table id="300" parent="2" name="tab_int"/>
     <table id="301" parent="9" name="t_admin"/>
-    <column id="302" parent="294" name="id">
+    <table id="302" parent="9" name="t_role"/>
+    <column id="303" parent="294" name="id">
       <Position>1</Position>
       <DataType>int|0s</DataType>
     </column>
-    <column id="303" parent="294" name="au_name">
+    <column id="304" parent="294" name="au_name">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
     </column>
-    <column id="304" parent="294" name="nation">
+    <column id="305" parent="294" name="nation">
       <Position>3</Position>
       <DataType>varchar(10)|0s</DataType>
     </column>
-    <column id="305" parent="295" name="id">
+    <column id="306" parent="295" name="id">
       <Position>1</Position>
       <DataType>int|0s</DataType>
     </column>
-    <column id="306" parent="295" name="au_name">
+    <column id="307" parent="295" name="au_name">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
     </column>
-    <column id="307" parent="295" name="nation">
+    <column id="308" parent="295" name="nation">
       <Position>3</Position>
       <DataType>varchar(10)|0s</DataType>
     </column>
-    <column id="308" parent="296" name="id">
+    <column id="309" parent="296" name="id">
       <Position>1</Position>
       <DataType>int|0s</DataType>
     </column>
-    <column id="309" parent="296" name="au_name">
+    <column id="310" parent="296" name="au_name">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
     </column>
-    <column id="310" parent="296" name="nation">
+    <column id="311" parent="296" name="nation">
       <Position>3</Position>
       <DataType>varchar(10)|0s</DataType>
     </column>
-    <column id="311" parent="297" name="id">
+    <column id="312" parent="297" name="id">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="312" parent="297" name="stuName">
+    <column id="313" parent="297" name="stuName">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
     </column>
-    <column id="313" parent="297" name="gender">
+    <column id="314" parent="297" name="gender">
       <Position>3</Position>
       <DataType>char(1)|0s</DataType>
     </column>
-    <column id="314" parent="297" name="seat">
+    <column id="315" parent="297" name="seat">
       <Position>4</Position>
       <DataType>int|0s</DataType>
     </column>
-    <column id="315" parent="297" name="age">
+    <column id="316" parent="297" name="age">
       <Position>5</Position>
       <DataType>int|0s</DataType>
     </column>
-    <column id="316" parent="297" name="majorid">
+    <column id="317" parent="297" name="majorid">
       <Position>6</Position>
       <DataType>int|0s</DataType>
     </column>
-    <index id="317" parent="297" name="uq">
+    <index id="318" parent="297" name="uq">
       <ColNames>seat</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="318" parent="297" name="PRIMARY">
+    <key id="319" parent="297" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="319" parent="297" name="uq">
+    <key id="320" parent="297" name="uq">
       <ColNames>seat</ColNames>
       <UnderlyingIndexName>uq</UnderlyingIndexName>
     </key>
-    <column id="320" parent="298" name="id">
+    <column id="321" parent="298" name="id">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="321" parent="298" name="stuName">
+    <column id="322" parent="298" name="stuName">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
     </column>
-    <column id="322" parent="298" name="gender">
+    <column id="323" parent="298" name="gender">
       <Position>3</Position>
       <DataType>char(1)|0s</DataType>
     </column>
-    <column id="323" parent="298" name="seat">
+    <column id="324" parent="298" name="seat">
       <Position>4</Position>
       <DataType>int|0s</DataType>
     </column>
-    <column id="324" parent="298" name="age">
+    <column id="325" parent="298" name="age">
       <Position>5</Position>
       <DataType>int|0s</DataType>
     </column>
-    <column id="325" parent="298" name="majorid">
+    <column id="326" parent="298" name="majorid">
       <Position>6</Position>
       <DataType>int|0s</DataType>
     </column>
-    <index id="326" parent="298" name="uq">
+    <index id="327" parent="298" name="uq">
       <ColNames>seat</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="327" parent="298" name="fk_stuinfo_major">
+    <index id="328" parent="298" name="fk_stuinfo_major">
       <ColNames>majorid</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="328" parent="298" name="PRIMARY">
+    <key id="329" parent="298" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="329" parent="298" name="uq">
+    <key id="330" parent="298" name="uq">
       <ColNames>seat</ColNames>
       <UnderlyingIndexName>uq</UnderlyingIndexName>
     </key>
-    <foreign-key id="330" parent="298" name="fk_stuinfo_major">
+    <foreign-key id="331" parent="298" name="fk_stuinfo_major">
       <ColNames>majorid</ColNames>
       <RefTableName>student</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="331" parent="299" name="t1">
+    <column id="332" parent="299" name="t1">
       <Position>1</Position>
       <DataType>datetime|0s</DataType>
     </column>
-    <column id="332" parent="299" name="t2">
+    <column id="333" parent="299" name="t2">
       <Position>2</Position>
       <DataType>timestamp|0s</DataType>
     </column>
-    <column id="333" parent="300" name="id">
+    <column id="334" parent="300" name="id">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="334" parent="300" name="id2">
+    <column id="335" parent="300" name="id2">
       <Position>2</Position>
       <DataType>int unsigned|0s</DataType>
     </column>
-    <column id="335" parent="301" name="id">
+    <column id="336" parent="301" name="id">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="336" parent="301" name="login">
+    <column id="337" parent="301" name="login">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="337" parent="301" name="user_pswd">
+    <column id="338" parent="301" name="user_pswd">
       <Position>3</Position>
       <DataType>char(32)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="338" parent="301" name="user_name">
+    <column id="339" parent="301" name="user_name">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="339" parent="301" name="email">
+    <column id="340" parent="301" name="email">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="340" parent="301" name="create_time">
+    <column id="341" parent="301" name="create_time">
       <Position>6</Position>
       <DataType>char(19)|0s</DataType>
     </column>
-    <index id="341" parent="301" name="login">
+    <index id="342" parent="301" name="login">
       <ColNames>login</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="342" parent="301" name="PRIMARY">
+    <key id="343" parent="301" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="343" parent="301" name="login">
+    <key id="344" parent="301" name="login">
       <ColNames>login</ColNames>
       <UnderlyingIndexName>login</UnderlyingIndexName>
+    </key>
+    <column id="345" parent="302" name="id">
+      <Position>1</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="346" parent="302" name="name">
+      <Position>2</Position>
+      <DataType>char(100)|0s</DataType>
+    </column>
+    <key id="347" parent="302" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
     </key>
   </database-model>
 </dataSource>

@@ -1,7 +1,7 @@
 package com.atguigu.crowd.service.api;
 
 import com.github.pagehelper.PageInfo;
-import crowd.entity.Admin;
+import com.atguigu.crowd.entity.Admin;
 
 import java.util.List;
 

@@ -5,14 +5,13 @@ import com.atguigu.crowd.exception.LoginAcctAlreadyInUseException;
 import com.atguigu.crowd.exception.LoginAcctAlreadyInUseForUpdateException;
 import com.atguigu.crowd.exception.LoginFailedException;
 import com.atguigu.crowd.mapper.AdminMapper;
-import com.atguigu.crowd.mvc.handler.TestHandler;
 import com.atguigu.crowd.service.api.AdminService;
 import com.atguigu.crowd.util.CrowdUtil;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import crowd.entity.AdminExample.Criteria;
-import crowd.entity.Admin;
-import crowd.entity.AdminExample;
+import com.atguigu.crowd.entity.AdminExample.Criteria;
+import com.atguigu.crowd.entity.Admin;
+import com.atguigu.crowd.entity.AdminExample;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
@@ -22,7 +21,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
-import java.util.logging.Logger;
 
 @Service
 public class AdminServiceImpl implements AdminService {
@@ -61,7 +59,6 @@ public class AdminServiceImpl implements AdminService {
     public Admin getAdminByLoginAcct(String loginAcct, String userPswd) {
         // 1. 根据登录账号查询Admin对象
         // 创建AdminExample对象
-        System.out.println("到1了");
         AdminExample adminExample = new AdminExample();
         // 创建Criteria对象
         Criteria criteria = adminExample.createCriteria();
@@ -84,14 +81,13 @@ public class AdminServiceImpl implements AdminService {
         if (admin == null) {
             throw new LoginFailedException(CrowdConstant.MESSAGE_LOGIN_FAILED);
         }
-        System.out.println("查到用户了");
         // 4.Admin对象不为null，取出密码
         String userPswdDB = admin.getUserPswd();
         // 5.将表单提交的明文密码进行加密
         String userPswmForm = CrowdUtil.md5(userPswd);
         // 6.比较密码
-        System.out.println("登录密码"+userPswmForm);
-        System.out.println("用户密码"+userPswdDB);
+/*        System.out.println("登录密码"+userPswmForm);
+        System.out.println("用户密码"+userPswdDB);*/
         if (!Objects.equals(userPswdDB, userPswmForm)) {
             // 7.结果不一致，抛异常
             throw new LoginFailedException(CrowdConstant.MESSAGE_LOGIN_FAILED);

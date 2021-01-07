@@ -3,7 +3,7 @@ package com.atguigu.crowd.mvc.handler;
 import com.atguigu.crowd.constant.CrowdConstant;
 import com.atguigu.crowd.service.api.AdminService;
 import com.github.pagehelper.PageInfo;
-import crowd.entity.Admin;
+import com.atguigu.crowd.entity.Admin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

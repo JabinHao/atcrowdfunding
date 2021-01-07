@@ -1,4 +1,4 @@
-package crowd.entity;
+package com.atguigu.crowd.entity;
 
 public class Admin {
     private Integer id;
