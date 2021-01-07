@@ -1,4 +1,4 @@
-package crowd.entity;
+package com.atguigu.crowd.entity;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,9 +1,14 @@
 package com.atguigu.crowd;
 
+import com.atguigu.crowd.entity.Role;
+import com.atguigu.crowd.mapper.RoleMapper;
 import com.atguigu.crowd.service.api.AdminService;
+import com.atguigu.crowd.service.api.RoleService;
 import com.atguigu.crowd.util.CrowdUtil;
-import crowd.entity.Admin;
+import com.atguigu.crowd.entity.Admin;
 import com.atguigu.crowd.mapper.AdminMapper;
+import com.atguigu.crowd.util.MyUtil;
+import com.fasterxml.jackson.databind.deser.impl.ValueInjector;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,9 +16,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 import javax.sql.DataSource;
+import java.io.*;
+import java.nio.ByteBuffer;
+import java.nio.channels.FileChannel;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
 
@@ -29,17 +38,38 @@ public class CrowdTest {
     @Autowired
     private AdminService adminService;
 
+    @Autowired
+    private RoleMapper roleMapper;
+
+    @Autowired
+    private RoleService roleService;
+
     @Test
     public void testTx(){
         Admin admin = new Admin(null, "mei Lee", CrowdUtil.md5("123456"), "mei", "mei@qq.com", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
         adminService.saveAdmin(admin);
     }
 
+    /**
+     * 读取文件中的admin信息存入数据库,admin信息为伪造的管理员信息列表
+     */
+    @Test
+    public void testCreateAdmin(){
+        String fileName = "F:\\code\\spring\\MyProject\\SSM\\atcrowdfunding\\admin_list.dat";
+        ArrayList<String> adminList = MyUtil.readName(fileName);
+        for (String admin:adminList) {
+            String[] message = admin.split(",");
+            adminMapper.insert(new Admin(null,message[0],message[1],message[2],message[3],message[4]));
+        }
+//        Admin admin = new Admin(null, "mei Lee", CrowdUtil.md5("123456"), "mei", "mei@qq.com", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+//        adminService.saveAdmin(admin);
+    }
+
     @Test
     public void testInsertAdmin(){
         Admin admin;
         String date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
-        String password = String.valueOf((int)(Math.random()*900000 + 100000));;
+        String password = "123123";
         String userPswd = CrowdUtil.md5(password);
         admin = new Admin(null,"Rachel",userPswd,"rui","rui@qq.com",date);
         int count = adminMapper.insert(admin);
@@ -150,4 +180,22 @@ public class CrowdTest {
         }
         System.out.println(val);
     }
+
+    //
+    @Test
+    public void createRole() throws IOException {
+        String fileName = "F:\\code\\spring\\MyProject\\SSM\\atcrowdfunding\\name_list.dat";
+        ArrayList<String> nameList = MyUtil.readName(fileName);
+    }
+
+    @Test
+    public void testRoleSave() {
+        String fileName = "F:\\code\\spring\\MyProject\\SSM\\atcrowdfunding\\name_list.dat";
+        ArrayList<String> nameList = MyUtil.readName(fileName);
+        for (String name:nameList) {
+            roleMapper.insert(new Role(null,name));
+        }
+    }
+
+ 
 }

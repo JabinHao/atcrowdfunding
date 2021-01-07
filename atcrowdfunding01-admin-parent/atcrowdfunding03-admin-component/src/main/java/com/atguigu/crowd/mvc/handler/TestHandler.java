@@ -1,10 +1,10 @@
 package com.atguigu.crowd.mvc.handler;
 
+import com.atguigu.crowd.entity.Admin;
 import com.atguigu.crowd.service.api.AdminService;
 import com.atguigu.crowd.util.CrowdUtil;
 import com.atguigu.crowd.util.ResultEntity;
-import crowd.entity.Admin;
-import crowd.entity.Student;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,10 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.List;
-import org.slf4j.Logger;
-
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @Controller
 public class TestHandler {
@@ -47,7 +46,7 @@ public class TestHandler {
         return "success";
     }
 
-    @ResponseBody
+/*    @ResponseBody
     @RequestMapping("/send/compose/object.do")
     public ResultEntity<Student> testReceiveComplicatedObject(@RequestBody Student student, HttpServletRequest request){
 
@@ -56,12 +55,12 @@ public class TestHandler {
 
         logger.info(student.toString());
 
-/*        // 制造空指针异常
+*//*        // 制造空指针异常
         String a = null;
-        System.out.println(a.length());*/
+        System.out.println(a.length());*//*
 
         return ResultEntity.successWithData(student);
-    }
+    }*/
 
     @RequestMapping("/test/ssm.html")
     public String testSSM(ModelMap modelMap, HttpServletRequest request){
@@ -77,5 +76,13 @@ public class TestHandler {
         System.out.println(10/0);
 
         return "target";
+    }
+
+    @RequestMapping("/test/ajax.do")
+    @ResponseBody
+    public String testAjax() throws InterruptedException {
+//        Thread.sleep(5000);
+        TimeUnit.SECONDS.sleep(2);
+        return "success";
     }
 }

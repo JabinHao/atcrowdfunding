@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="crowd_funding" uuid="6bf3e5c7-efe4-40ae-a201-0df37519d06b">
+    <data-source source="LOCAL" name="project_crowd-root" uuid="6bf3e5c7-efe4-40ae-a201-0df37519d06b">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <remarks>尚筹网ssm项目</remarks>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+      <driver-properties>
+        <property name="serverTimezone" value="UTC" />
+      </driver-properties>
+    </data-source>
+    <data-source source="LOCAL" name="project_crowd-Jacob" uuid="abf7c827-e06f-44d9-bdb1-19517dd999ff">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <remarks>Jacob</remarks>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/project_crowd</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
       <driver-properties>
         <property name="serverTimezone" value="UTC" />

@@ -45,6 +45,7 @@
     <mvc:view-controller path="/admin/to/login.do" view-name="admin-login"/>
     <mvc:view-controller path="/admin/to/main.do" view-name="admin-main"/>
     <mvc:view-controller path="/admin/to/add.do" view-name="admin-add"/>
+    <mvc:view-controller path="/role/to/page.do" view-name="role-page"/>
     
     <!--注册拦截器-->
     <mvc:interceptors>
@@ -55,6 +56,7 @@
             <mvc:exclude-mapping path="/admin/to/login.do"/>
             <mvc:exclude-mapping path="/admin/do/login.do"/>
             <mvc:exclude-mapping path="/admin/do/logout.do"/>
+            <mvc:exclude-mapping path="/test/**"/>
             <!--配置拦截器类-->
             <bean class="com.atguigu.crowd.mvc.interceptor.LoginInterceptor"/>
         </mvc:interceptor>

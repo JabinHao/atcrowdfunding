@@ -5,14 +5,13 @@ import com.atguigu.crowd.exception.LoginAcctAlreadyInUseException;
 import com.atguigu.crowd.exception.LoginAcctAlreadyInUseForUpdateException;
 import com.atguigu.crowd.exception.LoginFailedException;
 import com.atguigu.crowd.mapper.AdminMapper;
-import com.atguigu.crowd.mvc.handler.TestHandler;
 import com.atguigu.crowd.service.api.AdminService;
 import com.atguigu.crowd.util.CrowdUtil;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import crowd.entity.AdminExample.Criteria;
-import crowd.entity.Admin;
-import crowd.entity.AdminExample;
+import com.atguigu.crowd.entity.AdminExample.Criteria;
+import com.atguigu.crowd.entity.Admin;
+import com.atguigu.crowd.entity.AdminExample;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
@@ -22,7 +21,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
-import java.util.logging.Logger;
 
 @Service
 public class AdminServiceImpl implements AdminService {
