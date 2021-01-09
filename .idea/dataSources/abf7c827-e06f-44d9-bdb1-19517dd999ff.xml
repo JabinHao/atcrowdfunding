@@ -886,62 +886,90 @@ ALL PRIVILEGES|project_crowd_example
 </ObjectGrants>
     </user>
     <table id="279" parent="3" name="t_admin"/>
-    <table id="280" parent="3" name="t_role"/>
-    <column id="281" parent="279" name="id">
+    <table id="280" parent="3" name="t_menu"/>
+    <table id="281" parent="3" name="t_role"/>
+    <column id="282" parent="279" name="id">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="282" parent="279" name="login">
+    <column id="283" parent="279" name="login">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="283" parent="279" name="user_pswd">
+    <column id="284" parent="279" name="user_pswd">
       <Position>3</Position>
       <DataType>char(32)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="284" parent="279" name="user_name">
+    <column id="285" parent="279" name="user_name">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="285" parent="279" name="email">
+    <column id="286" parent="279" name="email">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="286" parent="279" name="create_time">
+    <column id="287" parent="279" name="create_time">
       <Position>6</Position>
       <DataType>char(19)|0s</DataType>
     </column>
-    <index id="287" parent="279" name="login">
+    <index id="288" parent="279" name="login">
       <ColNames>login</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="288" parent="279" name="PRIMARY">
+    <key id="289" parent="279" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="289" parent="279" name="login">
+    <key id="290" parent="279" name="login">
       <ColNames>login</ColNames>
       <UnderlyingIndexName>login</UnderlyingIndexName>
     </key>
-    <column id="290" parent="280" name="id">
+    <column id="291" parent="280" name="id">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="291" parent="280" name="name">
+    <column id="292" parent="280" name="pid">
+      <Position>2</Position>
+      <DataType>int|0s</DataType>
+    </column>
+    <column id="293" parent="280" name="name">
+      <Position>3</Position>
+      <DataType>varchar(200)|0s</DataType>
+    </column>
+    <column id="294" parent="280" name="url">
+      <Position>4</Position>
+      <DataType>varchar(200)|0s</DataType>
+    </column>
+    <column id="295" parent="280" name="icon">
+      <Position>5</Position>
+      <DataType>varchar(200)|0s</DataType>
+    </column>
+    <key id="296" parent="280" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="297" parent="281" name="id">
+      <Position>1</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="298" parent="281" name="name">
       <Position>2</Position>
       <DataType>char(100)|0s</DataType>
     </column>
-    <key id="292" parent="280" name="PRIMARY">
+    <key id="299" parent="281" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
