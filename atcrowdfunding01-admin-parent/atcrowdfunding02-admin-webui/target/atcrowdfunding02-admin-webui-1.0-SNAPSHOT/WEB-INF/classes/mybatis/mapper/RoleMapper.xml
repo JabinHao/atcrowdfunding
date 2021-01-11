@@ -66,6 +66,12 @@
   <sql id="Base_Column_List">
     id, name
   </sql>
+  <select id="selectAssignedRole" resultMap="BaseResultMap">
+    select id, name from t_role where id in (select role_id from inner_admin_role where admin_id = #{adminId})
+  </select>
+  <select id="selectUnAssignedRole" resultMap="BaseResultMap">
+    select id, name from t_role where id not in (select role_id from inner_admin_role where admin_id = #{adminId})
+  </select>
   <select id="selectRoleByKeyword" resultMap="BaseResultMap">
     select id, name from t_role
     where name like concat("%", #{keyword},"%")

@@ -4,9 +4,11 @@
 <%@include file="include-head.jsp" %>
 <link rel="stylesheet" href="css/pagination.css">
 <script type="text/javascript" src="jquery/jquery.pagination.js"></script>
+<link rel="stylesheet" href="ztree/zTreeStyle.css">
+<script type="text/javascript" src="ztree/jquery.ztree.all-3.5.min.js"></script>
 <script type="text/javascript" src="js/my-role.js"></script>
 <script type="text/javascript">
-    $(function (){
+    $(function () {
         // 1.为分页操作准备初始化数据
         window.pageNum = 1;
         window.pageSize = 5;
@@ -16,20 +18,20 @@
         generatePage();
 
         // 3. 查询操作
-        $("#searchBtn").click(function (){
+        $("#searchBtn").click(function () {
             window.keyword = $("#keywordInput").val();
             generatePage();
         });
         // 4. 点击新增打开模态框
-        $("#showAddModalBtn").click(function (){
+        $("#showAddModalBtn").click(function () {
             $("#addModal").modal("show");
         });
         // 5.模态框数据保存
-        $("#saveRoleBtn").click(function (){
+        $("#saveRoleBtn").click(function () {
             // 获取用户在模态框中输入的角色名，trim去前后空格
             var roleName = $.trim($("#addModal [name=roleName]").val());
 
-            console.log("打印：roleName"+roleName);
+            console.log("打印：roleName" + roleName);
             // 发送ajax请求
             $.ajax({
                 url: "role/save.do",
@@ -38,7 +40,7 @@
                     roleName: roleName
                 },
                 dataType: "json",
-                success: function (resp){
+                success: function (resp) {
                     let result = resp.result;
                     if (result === "SUCCESS") {
                         layer.msg("已保存");
@@ -48,11 +50,11 @@
                         generatePage();
                     }
                     if (result === "FAILED") {
-                        layer.msg("操作失败！"+resp.message);
+                        layer.msg("操作失败！" + resp.message);
                     }
                 },
                 error: function (resp) {
-                    layer.msg(resp.status+""+resp.statusText);
+                    layer.msg(resp.status + "" + resp.statusText);
                 }
             });
 
@@ -67,7 +69,7 @@
         /*$(".pencilBtn").click(function (){
             alert("AAAAAA")
         })*/
-        $("#rolePageBody").on("click",".pencilBtn", function (){
+        $("#rolePageBody").on("click", ".pencilBtn", function () {
             // 打开模态框
             $("#editModal").modal("show");
 
@@ -76,13 +78,13 @@
 
             // 获取当前角色id
             window.roleId = this.id;
-            console.log("roleId:"+window.roleId)
+            console.log("roleId:" + window.roleId)
             // 使用roleName的值设置模态框中的文本框
             $("#editModal [name=roleName]").val(roleName);
         });
 
         // 7.给更新模态框中的更新按钮绑定单机响应函数
-        $("#updateRoleBtn").click(function (){
+        $("#updateRoleBtn").click(function () {
             // 从文本框中获取新的角色名称
             var roleName = $("#editModal [name=roleName]").val();
 
@@ -95,7 +97,7 @@
                     name: roleName
                 },
                 dataType: "json",
-                success: function (resp){
+                success: function (resp) {
                     let result = resp.result;
                     if (result === "SUCCESS") {
                         layer.msg("更新成功！");
@@ -104,18 +106,18 @@
                         generatePage();
                     }
                     if (result === "FAILED") {
-                        layer.msg("操作失败！"+resp.message);
+                        layer.msg("操作失败！" + resp.message);
                     }
                 },
                 error: function (resp) {
-                    layer.msg(resp.status+""+resp.statusText);
+                    layer.msg(resp.status + "" + resp.statusText);
                 }
             });
             // 关闭模态框
             $("#editModal").modal("hide");
         });
         // 8. 点击确认模态框中的确认删除按钮执行删除
-        $("#removeRoleBtn").click(function (){
+        $("#removeRoleBtn").click(function () {
 
             let requestBody = JSON.stringify(window.roleIdArray);
             $.ajax({
@@ -124,7 +126,7 @@
                 data: requestBody,
                 contentType: "application/json;charset=utf-8",
                 dataType: "json",
-                success: function (resp){
+                success: function (resp) {
                     let result = resp.result;
                     if (result === "SUCCESS") {
                         layer.msg("删除成功！");
@@ -133,11 +135,11 @@
                         generatePage();
                     }
                     if (result === "FAILED") {
-                        layer.msg("操作失败！"+resp.message);
+                        layer.msg("操作失败！" + resp.message);
                     }
                 },
                 error: function (resp) {
-                layer.msg(resp.status+""+resp.statusText);
+                    layer.msg(resp.status + "" + resp.statusText);
                 }
             });
             // 关闭模态框
@@ -145,7 +147,7 @@
         });
 
         // 9. 单条删除
-        $("#rolePageBody").on("click", ".removeBtn", function (){
+        $("#rolePageBody").on("click", ".removeBtn", function () {
 
             // 从当前按钮出发获取角色名称
             let roleName = $(this).parent().prev().text();
@@ -161,7 +163,7 @@
         });
 
         // 10.给总的checkbox绑定单机响应函数
-        $("#summaryBox").click(function (){
+        $("#summaryBox").click(function () {
 
             // 获取当前多选框自身状态
             var currentStatus = this.checked;
@@ -171,7 +173,7 @@
         });
 
         // 11.全选全不选的反向操作
-        $("#rolePageBody").on("click", ".itemBox", function (){
+        $("#rolePageBody").on("click", ".itemBox", function () {
 
             // 获取当前已经选中的.itemBox的数量
             var checkedBoxCount = $(".itemBox:checked").length;
@@ -184,17 +186,17 @@
         });
 
         // 12.给批量删除的按钮绑定单击响应函数
-        $("#batchRemoveBtn").click(function (){
+        $("#batchRemoveBtn").click(function () {
 
             // 创建数组对象用来存放后面获取到的角色对象
             var roleArray = [];
 
             // 遍历当前选中的多选框
-            $(".itemBox:checked").each(function (){
+            $(".itemBox:checked").each(function () {
 
                 // 使用this引用当前遍历得到的多选框
                 var roleId = this.id;
-                console.log("roleId:"+roleId);
+                console.log("roleId:" + roleId);
 
                 // 通过DOM操作获取角色名称
                 var roleName = $(this).parent().next().text();
@@ -215,7 +217,63 @@
             showConfirmModal(roleArray);
         });
 
-    });
+        // 13.给分配权限按钮绑定单击响应函数
+        $("#rolePageBody").on("click", ".checkBtn", function () {
+
+            window.roleId = this.id;
+            // 打开模态框
+            $("#assignModal").modal("show");
+
+            //  在模态框中装载Auth的树形结构数据
+            fillAuthTree();
+        });
+
+        // 14.给分配权限模态框中的“分配” 按钮绑定单击响应函数
+        $("#assignBtn").click(function () {
+            // ①收集树形结构的各个节点中被勾选的节点
+            // [1]声明一个专门的数组存放 id
+            var authIdArray = [];
+            // [2]获取 zTreeObj 对象
+            var zTreeObj = $.fn.zTree.getZTreeObj("authTreeDemo");
+            // [3]获取全部被勾选的节点
+            var checkedNodes = zTreeObj.getCheckedNodes();
+            // [4]遍历 checkedNodes
+            for (var i = 0; i < checkedNodes.length; i++) {
+                var checkedNode = checkedNodes[i];
+                var authId = checkedNode.id;
+                authIdArray.push(authId);
+            }
+            // ②发送请求执行分配
+            var requestBody = {
+                "authIdArray": authIdArray,
+                // 为了服务器端 handler 方法能够统一使用 List<Integer>方式接收数据， roleId 也存入数组
+                "roleId": [window.roleId]
+            };
+            requestBody = JSON.stringify(requestBody);
+            $.ajax({
+                url: "assign/do/role/assign/auth.do",
+                type: "post",
+                data: requestBody,
+                contentType: "application/json;charset=UTF-8",
+                dataType: "json",
+                success: function (response) {
+                    var result = response.result;
+                    if (result === "SUCCESS") {
+                        layer.msg("操作成功！ ");
+                    }
+                    if
+                    (result === "FAILED") {
+                        layer.msg("操作失败！ " + response.message);
+                    }
+                },
+                error: function (response) {
+                    layer.msg(response.status + " " + response.statusText);
+                }
+            });
+            $("#assignModal").modal("hide");
+        });
+    })
+
 </script>
 
 <body>
@@ -271,6 +329,7 @@
 <%@include file="/WEB-INF/modal-role-add.jsp"%>
 <%@include file="/WEB-INF/modal-role-edit.jsp"%>
 <%@include file="/WEB-INF/modal-role-confirm.jsp"%>
+<%@include file="modal-role-assign-auth.jsp"%>
 </body>
 </html>
     
