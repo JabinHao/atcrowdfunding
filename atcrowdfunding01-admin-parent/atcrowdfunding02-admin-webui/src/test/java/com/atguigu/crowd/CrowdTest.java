@@ -1,14 +1,13 @@
 package com.atguigu.crowd;
 
+import com.atguigu.crowd.entity.Admin;
 import com.atguigu.crowd.entity.Role;
+import com.atguigu.crowd.mapper.AdminMapper;
 import com.atguigu.crowd.mapper.RoleMapper;
 import com.atguigu.crowd.service.api.AdminService;
 import com.atguigu.crowd.service.api.RoleService;
 import com.atguigu.crowd.util.CrowdUtil;
-import com.atguigu.crowd.entity.Admin;
-import com.atguigu.crowd.mapper.AdminMapper;
 import com.atguigu.crowd.util.MyUtil;
-import com.fasterxml.jackson.databind.deser.impl.ValueInjector;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,9 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 import javax.sql.DataSource;
-import java.io.*;
-import java.nio.ByteBuffer;
-import java.nio.channels.FileChannel;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;

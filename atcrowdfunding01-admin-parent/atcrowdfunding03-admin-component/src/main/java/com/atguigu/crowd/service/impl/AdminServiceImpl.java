@@ -15,6 +15,7 @@ import com.atguigu.crowd.entity.AdminExample;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
@@ -28,12 +29,16 @@ public class AdminServiceImpl implements AdminService {
     @Autowired
     private AdminMapper adminMapper;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     private final org.slf4j.Logger logger = LoggerFactory.getLogger(AdminServiceImpl.class);
 
     @Override
     public void saveAdmin(Admin admin) {
         // 密码加密
-        admin.setUserPswd(CrowdUtil.md5(admin.getUserPswd()));
+        String userPswd = admin.getUserPswd();
+        admin.setUserPswd(passwordEncoder.encode(userPswd));
         // 创建时间
         admin.setCreateTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
         try {
@@ -84,7 +89,7 @@ public class AdminServiceImpl implements AdminService {
         // 4.Admin对象不为null，取出密码
         String userPswdDB = admin.getUserPswd();
         // 5.将表单提交的明文密码进行加密
-        String userPswmForm = CrowdUtil.md5(userPswd);
+        String userPswmForm = passwordEncoder.encode(userPswd);
         // 6.比较密码
 /*        System.out.println("登录密码"+userPswmForm);
         System.out.println("用户密码"+userPswdDB);*/
@@ -141,5 +146,18 @@ public class AdminServiceImpl implements AdminService {
         if (roleIdList != null && roleIdList.size()>0) {
             adminMapper.insertNewRelationship(adminId, roleIdList);
         }
+    }
+
+    @Override
+    public Admin getAdminByLoginAcct(String username) {
+
+        AdminExample example = new AdminExample();
+
+        Criteria criteria = example.createCriteria();
+
+        criteria.andLoginEqualTo(username);
+
+        return adminMapper.selectByExample(example).get(0);
+
     }
 }

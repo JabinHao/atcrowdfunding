@@ -17,17 +17,8 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+    <!-- 静态文件加载 -->
     <mvc:default-servlet-handler />
-<!--    <mvc:resources mapping="/js/**" location="/jquery/"/>-->
-<!--    <mvc:resources mapping="/img/**" location="/img"/>-->
-<!--    <mvc:resources mapping="/fonts/**" location="/fonts/"/>-->
-<!--    <mvc:resources mapping="/jquery/**" location="/jquery/"/>-->
-<!--    <mvc:resources mapping="/css/**" location="/css/"/>-->
-<!--    <mvc:resources mapping="/script/**" location="/script/"/>-->
-<!--    <mvc:resources mapping="/bootstrap/**" location="/bootstrap/"/>-->
-<!--    <mvc:resources mapping="/ztree/**" location="/ztree/"/>-->
-<!--    <mvc:resources mapping="/layer/**" location="/layer/"/>-->
-
 
     <!--配置基于xml的异常映射-->
     <bean id="simpleMappingExceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
@@ -47,20 +38,22 @@
     <mvc:view-controller path="/admin/to/add.do" view-name="admin-add"/>
     <mvc:view-controller path="/role/to/page.do" view-name="role-page"/>
     <mvc:view-controller path="/menu/to/page.do" view-name="menu-page"/>
-    
-    <!--注册拦截器-->
+
+<!--    使用SpringSecurity后，当前自定义的登录拦截器不再使用
+    &lt;!&ndash;注册拦截器&ndash;&gt;
     <mvc:interceptors>
         <mvc:interceptor>
-            <!--要拦截的路径-->
+            &lt;!&ndash;要拦截的路径&ndash;&gt;
             <mvc:mapping path="/**"/>
-            <!--不拦截的资源-->
+            &lt;!&ndash;不拦截的资源&ndash;&gt;
             <mvc:exclude-mapping path="/admin/to/login.do"/>
             <mvc:exclude-mapping path="/admin/do/login.do"/>
             <mvc:exclude-mapping path="/admin/do/logout.do"/>
             <mvc:exclude-mapping path="/test/**"/>
-            <!--配置拦截器类-->
+            &lt;!&ndash;配置拦截器类&ndash;&gt;
             <bean class="com.atguigu.crowd.mvc.interceptor.LoginInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
+    -->
 
 </beans>

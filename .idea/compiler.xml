@@ -7,8 +7,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="atcrowdfunding02-admin-webui" />
-        <module name="atcrowdfunding05-common-util" />
+        <module name="pro2-spring-security" />
+        <module name="pro01-spring-annotation" />
         <module name="atcrowdfunding04-admin-entity" />
+        <module name="atcrowdfunding05-common-util" />
         <module name="atcrowdfunding06-common-reverse" />
         <module name="atcrowdfunding03-admin-component" />
       </profile>
@@ -20,6 +22,9 @@
       <module name="atcrowdfunding04-admin-entity" target="7" />
       <module name="atcrowdfunding05-common-util" target="1.8" />
       <module name="atcrowdfunding06-common-reverse" target="7" />
+      <module name="pro01-spring-annotation" target="1.8" />
+      <module name="pro04-spring-wartest" target="1.8" />
+      <module name="pro2-spring-security" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -329,7 +329,7 @@
 <%@include file="/WEB-INF/modal-role-add.jsp"%>
 <%@include file="/WEB-INF/modal-role-edit.jsp"%>
 <%@include file="/WEB-INF/modal-role-confirm.jsp"%>
-<%@include file="modal-role-assign-auth.jsp"%>
+<%@include file="/WEB-INF/modal-role-assign-auth.jsp"%>
 </body>
 </html>
     

@@ -4,7 +4,7 @@
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_3_1.xsd"
          version="3.1">
 
-    <!--ContextLoaderListener-->
+    <!--spring配置 — ContextLoaderListener-->
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath:spring-persist-*.xml</param-value>
@@ -65,9 +65,15 @@
             缺点：不符合RESTFUL风格、请求扩展名不匹配时会406错误
         -->
     </servlet-mapping>
-<!--    <servlet-mapping>-->
-<!--        <servlet-name>default</servlet-name>-->
-<!--        <url-pattern>*.js</url-pattern>-->
-<!--    </servlet-mapping>-->
+
+    <!-- SpringSecurity 的配置，filter-name必须是springSecurityFilterChain -->
+    <filter>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 
 </web-app>

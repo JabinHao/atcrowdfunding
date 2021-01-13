@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="pro2-spring-security:war exploded2">
+    <output-path>$PROJECT_DIR$/out/artifacts/pro2_spring_security_war_exploded2</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="pro2-spring-security/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="pro2-spring-security" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

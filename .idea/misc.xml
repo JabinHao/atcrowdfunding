@@ -2,6 +2,8 @@
 <project version="4">
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/atcrowdfunding01-admin-parent/atcrowdfunding02-admin-webui" />
+    <file type="web" url="file://$PROJECT_DIR$/pro04-spring-wartest" />
+    <file type="web" url="file://$PROJECT_DIR$/pro2-spring-security" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
@@ -9,10 +11,12 @@
         <option value="$PROJECT_DIR$/atcrowdfunding01-admin-parent/pom.xml" />
         <option value="$PROJECT_DIR$/atcrowdfunding05-common-util/pom.xml" />
         <option value="$PROJECT_DIR$/atcrowdfunding06-common-reverse/pom.xml" />
+        <option value="$PROJECT_DIR$/pro01-spring-annotation/pom.xml" />
+        <option value="$PROJECT_DIR$/pro2-spring-security/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" default="false" project-jdk-name="JavaSE-1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="JavaSE-1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>

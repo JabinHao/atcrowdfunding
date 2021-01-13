@@ -5,6 +5,7 @@ import com.atguigu.crowd.service.api.AdminService;
 import com.github.pagehelper.PageInfo;
 import com.atguigu.crowd.entity.Admin;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -80,6 +81,7 @@ public class AdminHandler {
 
     // 新增成员
     @RequestMapping("/admin/save.do")
+    @PreAuthorize("hasAuthority('user:save')")
     public String save(Admin admin) {
         adminService.saveAdmin(admin);
         return "redirect:/admin/get/page.do?pageNum="+Integer.MAX_VALUE;

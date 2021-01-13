@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="pro04-spring-wartest:war">
+    <output-path>$PROJECT_DIR$/pro04-spring-wartest/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>pro04-spring-wartest</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="pro04-spring-wartest-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="pro04-spring-wartest:war exploded" />
+    </root>
+  </artifact>
+</component>

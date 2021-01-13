@@ -26,6 +26,7 @@ function getPageInfoRemote() {
     var statusCode = ajaxResult.status;
     // 如果当前响应状态码不是200，说明出现错误，显示提示信息，让当前函数停止执行
     if (statusCode != 200) {
+        layer.msg("test error")
         layer.msg("失败! 状态码="+statusCode+" 提示信息="+ajaxResult.statusText);
         return null;
     }
@@ -35,7 +36,7 @@ function getPageInfoRemote() {
     var result = resultEntity.result;
     // 判断result是否成功
     if (result == "FAILED"){
-        layer.msg(resultEntity);
+        layer.msg(resultEntity.message);
         return null;
     }
     var pageInfo = resultEntity.data;

@@ -177,21 +177,21 @@
             <dependency>
                 <groupId>org.springframework.security</groupId>
                 <artifactId>spring-security-web</artifactId>
-                <version>5.4.2</version>
+                <version>${spring.security.version}</version>
             </dependency>
             <!-- SpringSecurity 配置 -->
             <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-config -->
             <dependency>
                 <groupId>org.springframework.security</groupId>
                 <artifactId>spring-security-config</artifactId>
-                <version>5.4.2</version>
+                <version>${spring.security.version}</version>
             </dependency>
             <!-- SpringSecurity 标签库 -->
             <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs -->
             <dependency>
                 <groupId>org.springframework.security</groupId>
                 <artifactId>spring-security-taglibs</artifactId>
-                <version>5.4.2</version>
+                <version>${spring.security.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

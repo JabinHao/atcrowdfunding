@@ -39,6 +39,7 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-orm:5.2.11.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-beans:5.2.11.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-core:5.2.11.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-jcl:5.2.11.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-jdbc:5.2.11.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-tx:5.2.11.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-webmvc:5.2.11.RELEASE" level="project" />
@@ -75,5 +76,10 @@
     <orderEntry type="library" scope="RUNTIME" name="Maven: javax.activation:activation:1.1" level="project" />
     <orderEntry type="library" name="Maven: edu.washington.cs.types.checker:checker-framework:1.7.0" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:jcl-over-slf4j:2.0.0-alpha1" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-web:5.4.2" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-core:5.4.2" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-config:5.4.2" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-taglibs:5.4.2" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-acl:5.4.2" level="project" />
   </component>
 </module>

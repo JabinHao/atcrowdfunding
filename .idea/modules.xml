@@ -8,6 +8,9 @@
       <module fileurl="file://$PROJECT_DIR$/atcrowdfunding01-admin-parent/atcrowdfunding04-admin-entity/atcrowdfunding04-admin-entity.iml" filepath="$PROJECT_DIR$/atcrowdfunding01-admin-parent/atcrowdfunding04-admin-entity/atcrowdfunding04-admin-entity.iml" />
       <module fileurl="file://$PROJECT_DIR$/atcrowdfunding05-common-util/atcrowdfunding05-common-util.iml" filepath="$PROJECT_DIR$/atcrowdfunding05-common-util/atcrowdfunding05-common-util.iml" />
       <module fileurl="file://$PROJECT_DIR$/atcrowdfunding06-common-reverse/atcrowdfunding06-common-reverse.iml" filepath="$PROJECT_DIR$/atcrowdfunding06-common-reverse/atcrowdfunding06-common-reverse.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pro01-spring-annotation/pro01-spring-annotation.iml" filepath="$PROJECT_DIR$/pro01-spring-annotation/pro01-spring-annotation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pro04-spring-wartest/pro04-spring-wartest.iml" filepath="$PROJECT_DIR$/pro04-spring-wartest/pro04-spring-wartest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pro2-spring-security/pro2-spring-security.iml" filepath="$PROJECT_DIR$/pro2-spring-security/pro2-spring-security.iml" />
     </modules>
   </component>
 </project>
