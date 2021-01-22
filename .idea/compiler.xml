@@ -2,16 +2,25 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="atcrowdfunding02-admin-webui" />
-        <module name="pro2-spring-security" />
-        <module name="pro01-spring-annotation" />
+        <module name="atcrowdfunding14-member-order-consumer" />
+        <module name="atcrowdfunding16-member-zuul" />
         <module name="atcrowdfunding04-admin-entity" />
-        <module name="atcrowdfunding05-common-util" />
+        <module name="atcrowdfunding17-member-api" />
+        <module name="atcrowdfunding08-member-eureka" />
         <module name="atcrowdfunding06-common-reverse" />
+        <module name="atcrowdfunding10-member-mysql-provider" />
+        <module name="atcrowdfunding09-member-entity" />
+        <module name="atcrowdfunding15-member-pay-consumer" />
+        <module name="atcrowdfunding12-member-authentication-consumer" />
+        <module name="atcrowdfunding05-common-util" />
+        <module name="atcrowdfunding11-member-redis-provider" />
+        <module name="atcrowdfunding13-member-project-consumer" />
         <module name="atcrowdfunding03-admin-component" />
       </profile>
     </annotationProcessing>
@@ -22,9 +31,21 @@
       <module name="atcrowdfunding04-admin-entity" target="7" />
       <module name="atcrowdfunding05-common-util" target="1.8" />
       <module name="atcrowdfunding06-common-reverse" target="7" />
+      <module name="atcrowdfunding07-member-parent" target="1.8" />
+      <module name="atcrowdfunding08-member-eureka" target="1.8" />
+      <module name="atcrowdfunding09-member-entity" target="1.8" />
+      <module name="atcrowdfunding10-member-mysql-provider" target="1.8" />
+      <module name="atcrowdfunding11-member-redis-provider" target="1.8" />
+      <module name="atcrowdfunding12-member-authentication-consumer" target="1.8" />
+      <module name="atcrowdfunding13-member-project-consumer" target="15" />
+      <module name="atcrowdfunding14-member-order-consumer" target="15" />
+      <module name="atcrowdfunding15-member-pay-consumer" target="15" />
+      <module name="atcrowdfunding16-member-zuul" target="1.8" />
+      <module name="atcrowdfunding17-member-api" target="1.8" />
       <module name="pro01-spring-annotation" target="1.8" />
       <module name="pro04-spring-wartest" target="1.8" />
       <module name="pro2-spring-security" target="1.8" />
+      <module name="untitled" target="15" />
     </bytecodeTargetLevel>
   </component>
 </project>
