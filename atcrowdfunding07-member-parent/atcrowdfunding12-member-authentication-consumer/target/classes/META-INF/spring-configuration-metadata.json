@@ -1,0 +1,22 @@
+{
+  "groups": [
+    {
+      "name": "short.message",
+      "type": "com.atguigu.crowd.config.ShortMessageProperties",
+      "sourceType": "com.atguigu.crowd.config.ShortMessageProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "short.message.sign-name",
+      "type": "java.lang.String",
+      "sourceType": "com.atguigu.crowd.config.ShortMessageProperties"
+    },
+    {
+      "name": "short.message.template-code",
+      "type": "java.lang.String",
+      "sourceType": "com.atguigu.crowd.config.ShortMessageProperties"
+    }
+  ],
+  "hints": []
+}

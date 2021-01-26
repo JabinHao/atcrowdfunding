@@ -7,8 +7,21 @@ spring:
   thymeleaf:
     prefix: classpath:/templates/
     suffix: .html
+  redis:
+    host: 54.238.77.83
+  session:
+    store-type: redis
+
+ribbon:
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
 
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:1000/eureka
+
+short:
+  message:
+    sign-name: 1
+    template-code: SMS_210062882

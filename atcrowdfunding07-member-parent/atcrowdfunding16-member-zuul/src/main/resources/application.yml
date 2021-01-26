@@ -4,6 +4,14 @@ server:
 spring:
   application:
     name: atguigu-crowd-zuul
+  redis:
+    host: 54.238.77.83
+  session:
+    store-type: redis
+
+ribbon:
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
 
 eureka:
   client:
@@ -11,9 +19,13 @@ eureka:
       defaultZone: http://localhost:1000/eureka
 
 zuul:
+  ignored-services: "*"
+  sensitive-headers: "*"
   routes:
     crowd-portal:
       service-id: atguigu-crowd-auth
       path: /**
-  ignored-services: "*"
-  sensitive-headers: "*"
+    crowd-project:
+      service-id: atguigu-crowd-project
+      path: /project/**
+

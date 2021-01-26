@@ -1,0 +1,37 @@
+{
+  "groups": [
+    {
+      "name": "aliyun.oss",
+      "type": "com.atguigu.crowd.config.OSSProperties",
+      "sourceType": "com.atguigu.crowd.config.OSSProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "aliyun.oss.access-key-id",
+      "type": "java.lang.String",
+      "sourceType": "com.atguigu.crowd.config.OSSProperties"
+    },
+    {
+      "name": "aliyun.oss.access-key-secret",
+      "type": "java.lang.String",
+      "sourceType": "com.atguigu.crowd.config.OSSProperties"
+    },
+    {
+      "name": "aliyun.oss.bucket-domain",
+      "type": "java.lang.String",
+      "sourceType": "com.atguigu.crowd.config.OSSProperties"
+    },
+    {
+      "name": "aliyun.oss.bucket-name",
+      "type": "java.lang.String",
+      "sourceType": "com.atguigu.crowd.config.OSSProperties"
+    },
+    {
+      "name": "aliyun.oss.end-point",
+      "type": "java.lang.String",
+      "sourceType": "com.atguigu.crowd.config.OSSProperties"
+    }
+  ],
+  "hints": []
+}
