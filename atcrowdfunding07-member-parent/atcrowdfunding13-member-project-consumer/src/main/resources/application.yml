@@ -24,7 +24,7 @@ eureka:
 aliyun:
   oss:
     access-key-id: LTAI4GKG7FA4YiMvyP1PwxQm
-    access-key-secret: PAf8u1TmhXYm7edDkvwUTIq4RcQAUX
+    access-key-secret: PAf8u1TmhXYm7edDkvwUTIq4RcQaux
     bucket-domain: http://atguigu20210126.oss-cn-hangzhou.aliyuncs.com
     bucket-name: atguigu20210126
     end-point: http://oss-cn-hangzhou.aliyuncs.com

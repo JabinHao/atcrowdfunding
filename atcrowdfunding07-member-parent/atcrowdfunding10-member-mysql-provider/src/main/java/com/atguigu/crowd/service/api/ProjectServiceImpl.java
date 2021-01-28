@@ -4,18 +4,17 @@ import com.atguigu.crowd.entity.po.MemberConfirmInfoPO;
 import com.atguigu.crowd.entity.po.MemberLaunchInfoPO;
 import com.atguigu.crowd.entity.po.ProjectPO;
 import com.atguigu.crowd.entity.po.ReturnPO;
-import com.atguigu.crowd.entity.vo.MemberConfirmInfoVO;
-import com.atguigu.crowd.entity.vo.MemberLauchInfoVO;
-import com.atguigu.crowd.entity.vo.ProjectVO;
-import com.atguigu.crowd.entity.vo.ReturnVO;
+import com.atguigu.crowd.entity.vo.*;
 import com.atguigu.crowd.mapper.*;
 import com.atguigu.crowd.service.ProjectService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -23,6 +22,7 @@ import java.util.List;
 
 @Transactional(readOnly = true)
 @Service
+@Slf4j
 public class ProjectServiceImpl implements ProjectService {
 
     @Autowired
@@ -106,5 +106,69 @@ public class ProjectServiceImpl implements ProjectService {
         BeanUtils.copyProperties(memberConfirmInfoVO, memberConfirmInfoPO);
         memberConfirmInfoPO.setMemberid(memberId);
         memberConfirmInfoPOMapper.insert(memberConfirmInfoPO);
+    }
+
+    @Override
+    public List<PortalTypeVO> getPortalTypeVO() {
+
+        return projectPOMapper.selectPortalTypeVOList();
+    }
+
+    @Override
+    public DetailProjectVO getDetailProjectVO(Integer projectId) {
+
+        // 1.查询得到 DetailProjectVO 对象
+        DetailProjectVO detailProjectVO = projectPOMapper.selectDetailProjectVO(projectId);
+        if (detailProjectVO == null) {
+
+            log.error("项目不存在，项目编号："+ projectId);
+            return null;
+        }
+
+        // 2.根据 status 确定 statusText
+        Integer status = detailProjectVO.getStatus();
+
+        switch (status){
+            case 0:
+                detailProjectVO.setStatusText("审核中");
+                break;
+            case 1:
+                detailProjectVO.setStatusText("众筹中");
+                break;
+            case 2:
+                detailProjectVO.setStatusText("众筹成功");
+                break;
+            case 3:
+                detailProjectVO.setStatusText("已关闭");
+                break;
+            default:
+                break;
+        }
+
+        // 3.根据 deployeDate 计算 lastDay
+        String deployDate = detailProjectVO.getDeployDate();
+
+        // 获取当前日期
+        Date currentDay = new Date();
+
+        // 把众筹日期解析成 Date 类型
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            Date deployDay = format.parse(deployDate);
+            // 获取当前当前日期的时间戳
+            long currentTimeStamp = currentDay.getTime();
+            // 获取众筹日期的时间戳
+            long deployTimeStamp = deployDay.getTime();
+            // 两个时间戳相减计算当前已经过去的时间
+            long pastDays = (currentTimeStamp - deployTimeStamp) / 1000 / 60 / 60 / 24;
+            // 获取总的众筹天数
+            Integer totalDays = detailProjectVO.getDay();
+            // 使用总的众筹天数减去已经过去的天数得到剩余天数
+            Integer lastDay = (int) (totalDays - pastDays);
+            detailProjectVO.setLastDay(lastDay);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return detailProjectVO;
     }
 }

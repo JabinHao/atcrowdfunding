@@ -1,6 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.atguigu.crowd.mapper.ProjectPOMapper">
+
+  <resultMap id="LoadProjectDetailResultMap" type="com.atguigu.crowd.entity.vo.DetailProjectVO">
+    <id column="id" property="projectId"/>
+    <result column="project_name" property="projectName"/>
+    <result column="project_description" property="projectDesc"/>
+    <result column="money" property="money"/>
+    <result column="status" property="status"/>
+    <result column="day" property="day"/>
+    <result column="deploydate" property="deployDate"/>
+    <result column="supportmoney" property="supportMoney"/>
+    <result column="follower" property="followerCount"/>
+    <result column="supporter" property="supporterCount"/>
+    <result column="header_picture_path" property="headerPicturePath"/>
+    <collection
+            property="detailPicturePathList"
+            select="com.atguigu.crowd.mapper.ProjectPOMapper.selectDetailPicturePath"
+            column="id"/>
+    <collection
+            property="detailReturnVOList"
+            select="com.atguigu.crowd.mapper.ProjectPOMapper.selectDetailReturnVO"
+            column="id"/>
+  </resultMap>
+
+  <select id="selectDetailPicturePath" resultType="string">
+    select item_pic_path from t_project_item_pic where projectid=#{id}
+  </select>
+
+  <select id="selectDetailReturnVO" resultType="com.atguigu.crowd.entity.vo.DetailReturnVO">
+    select
+           id returnId,
+           supportmoney supportMoney,
+           content,
+           signalpurchase signalPurchase,
+           purchase,
+           freight,
+           returndate returnDate
+    from t_return
+    where projectid=#{id}
+  </select>
+
+  <select id="selectDetailProjectVO" resultMap="LoadProjectDetailResultMap">
+    select
+           id,
+           project_name,
+           project_description ,
+           money,
+           status,
+           day,
+           deploydate,
+           supportmoney,
+           supporter,
+           supportmoney/money*100 percentage,
+           follower,
+           header_picture_path
+    from
+      t_project
+    where id=#{projectId}
+  </select>
+
+  <resultMap id="LoadPortalProjectListResultMap" type="com.atguigu.crowd.entity.vo.PortalTypeVO">
+    <!-- 分类数据的常规属性 -->
+    <id column="id" property="id"/>
+    <result column="name" property="name"/>
+    <result column="remark" property="remark"/>
+
+    <!-- 分类数据中包含的项目数据的 List -->
+    <!-- property 属性： 对应 PortalTypeVO 中分类数据中的项目数据的 List 属性 -->
+    <!-- column 属性： 接下来查询项目时需要用到分类 id， 就是通过 column 属性把值传入-->
+    <!-- ofType 属性： 项目数据的实体类型 PortalProjectVO -->
+    <collection property="portalProjectVOList" column="id"
+                ofType="com.atguigu.crowd.entity.vo.PortalProjectVO"
+                select="com.atguigu.crowd.mapper.ProjectPOMapper.selectPortalProjectVOList"/>
+  </resultMap>
+
+  <select id="selectPortalTypeVOList" resultMap="LoadPortalProjectListResultMap">
+    select id, name, remark from t_type
+  </select>
+
+  <select id="selectPortalProjectVOList" resultType="com.atguigu.crowd.entity.vo.PortalProjectVO">
+    SELECT
+      t_project.id projectId,
+      project_name projectName,
+      money,
+      deploydate deployDate,
+      supportmoney/money*100 percentage,
+      supporter supporter,
+      header_picture_path headerPicturePath
+    FROM t_project LEFT JOIN t_project_type ON t_project.id=t_project_type.projectid
+    WHERE t_project_type.typeid=#{id}
+    ORDER BY t_project.id DESC
+    LIMIT 0,4
+  </select>
+
   <resultMap id="BaseResultMap" type="com.atguigu.crowd.entity.po.ProjectPO">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="project_name" jdbcType="VARCHAR" property="projectName" />
