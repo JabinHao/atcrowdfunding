@@ -28,4 +28,7 @@ zuul:
     crowd-project:
       service-id: atguigu-crowd-project
       path: /project/**
+    crowd-order:
+      service-id: atguigu-crowd-order
+      path: /order/**
 
